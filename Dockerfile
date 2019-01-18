@@ -1,7 +1,7 @@
 FROM alpine:latest
 LABEL Author="m-ko.de"
 
-ENV TARGET_TYPE middle
+ENV RELAY_TYPE middle
 
 ENV RELAY_PORT 9001
 ENV RELAY_BANDWIDTH_RATE 400000 KBytes
@@ -20,11 +20,15 @@ COPY types/torrc.bridge /etc/tor/torrc.bridge
 COPY types/torrc.middle /etc/tor/torrc.middle
 COPY types/torrc.exit /etc/tor/torrc.exit
 
-COPY prepare.sh /prepare.sh
-RUN chmod ugo+rx /prepare.sh
+COPY bootstrap.sh /bootstrap.sh
+RUN chmod ugo+rx /bootstrap.sh
 
 RUN chown -R tor /etc/tor
 
 USER tor
 
-ENTRYPOINT [ "tor", "-f", "/etc/tor/torrc.middle" ]
+RUN mkdir /var/lib/tor/.tor
+VOLUME /var/lib/tor/.tor
+RUN chown -R tor /var/lib/tor/.tor
+
+ENTRYPOINT [ "/bootstrap.sh" ]

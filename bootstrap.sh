@@ -11,3 +11,5 @@ for relaytype in bridge middle exit; do
 	sed -i "s/CONTACT_EMAIL/${CONTACT_EMAIL}/g" "$file"
     sed -i "s/RELAY_PORT/${RELAY_PORT}/g" "$file"
 done
+
+exec tor -f "/etc/tor/torrc.${RELAY_TYPE}"
