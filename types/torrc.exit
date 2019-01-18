@@ -1,5 +1,5 @@
 ORPort RELAY_PORT
-Nickname mko-tor-relay-exit
+Nickname MkoTorRelayExit
 ContactInfo CONTACT_NAME CONTACT_EMAIL
 
 # Reduced exit policy from

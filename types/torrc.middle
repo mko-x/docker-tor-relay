@@ -1,5 +1,5 @@
 ORPort RELAY_PORT
-Nickname mko-tor-relay-middle
+Nickname MkoTorRelayMiddle
 ContactInfo CONTACT_NAME CONTACT_EMAIL
 ExitPolicy reject *:*
 
