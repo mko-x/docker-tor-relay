@@ -1,0 +1,9 @@
+version: "2"
+services:
+  tor-relay:
+    build: .
+    volumes:
+      - /etc/localtime:/etc/localtime
+    restart: always
+    ports:
+      - 9001:9001

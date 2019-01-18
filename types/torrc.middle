@@ -1,0 +1,7 @@
+ORPort RELAY_PORT
+Nickname mko-tor-relay-middle
+ContactInfo CONTACT_NAME CONTACT_EMAIL
+ExitPolicy reject *:*
+
+RelayBandwidthRate RELAY_BANDWIDTH_RATE
+RelayBandwidthBurst RELAY_BANDWIDTH_BURST
